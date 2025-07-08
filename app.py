@@ -19,6 +19,10 @@ week = st.number_input("Week", min_value=1, max_value=5, step=1)
 
 # Button to predict
 if st.button("Predict Active Power"):
-    input_data = np.array([[wind_speed, wind_direction, month, week]])
-    prediction = model.predict(input_data)
-    st.success(f"Predicted Active Power: {prediction[0]:.2f} kW")
+    if wind_speed == 0:
+        prediction = 0.0
+    else:
+        input_data = np.array([[wind_speed, wind_direction, month, week]])
+        prediction = model.predict(input_data)[0]
+
+    st.success(f"Predicted Active Power: {prediction:.2f} kW")
