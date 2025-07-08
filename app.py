@@ -31,7 +31,7 @@ with col2:
     month = month_names[selected_month]
 
     # Week dropdown
-    week = st.selectbox("Week", list(range(1, 53)))
+    week = st.selectbox("Week", list(range(1, 6)))
 
     # Predict button
     if st.button("Predict Active Power"):
